@@ -1,5 +1,5 @@
 {
-  "name": "@nitin-jaswal/react-document-preview",
+  "name": "document-preview-react",
   "version": "0.0.0-development",
   "description": "A template for creating npm packages using TypeScript and VSCode",
   "main": "./dist/document-preview.umd.js",
