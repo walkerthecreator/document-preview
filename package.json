@@ -1,6 +1,6 @@
 {
   "name": "document-preview-react",
-  "version": "0.7.0-development",
+  "version": "0.7.1-development",
   "type": "module",
   "description": "A template for creating npm packages using TypeScript and VSCode",
   "main": "./dist/document-preview.umd.js",
