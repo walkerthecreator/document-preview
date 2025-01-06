@@ -1,4 +1,4 @@
-import { CloudDownload } from 'lucide-react';
+// import { CloudDownload } from 'lucide-react';
 import { FC } from 'react';
 import React from 'react';
 import { idText } from 'typescript';
@@ -68,6 +68,8 @@ export const DownloadButton: FC<{ s3Url: string; fileName: string; type: "pdf" |
         top: -12,
         right: 0,
         cursor: "pointer"
-      }}><CloudDownload style={{ height: 10, width: 10 }} />Download</span>
+      }}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-cloud-download"><path d="M12 13v8l-4-4" /><path d="m12 21 4-4" /><path d="M4.393 15.269A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.436 8.284" /></svg>
+      Download</span>
   );
 };

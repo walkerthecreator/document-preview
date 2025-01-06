@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
 import * as pdfjsLib from "pdfjs-dist";
-import { FileX2 } from "lucide-react";
 import { features } from "../feature"
 import { Loading } from "./Loading";
 import { DownloadButton } from "./download"
@@ -49,6 +48,8 @@ export const DocumentPreview: React.FC<IDocumentPreview> = ({
         [documentType]
     );
 
+    console.log('eror', error)
+
     useEffect(() => {
         const loadThumbnail = async () => {
             try {
@@ -73,8 +74,6 @@ export const DocumentPreview: React.FC<IDocumentPreview> = ({
                         width
                     })
                     setThumbnailUrl(imageData)
-
-
                 }
                 else {
                     setThumbnailUrl(url!)
@@ -86,18 +85,20 @@ export const DocumentPreview: React.FC<IDocumentPreview> = ({
             }
         };
 
+
         loadThumbnail();
     }, [url, width, documentType]);
 
 
     if (isLoading) <Loading width={width} height={height} documentType={documentType} />
-    if (!thumbnailUrl) return null;
+    // if (!thumbnailUrl) return null;
 
     return (
         <div style={styles.container(width, height)}>{
             error ?
                 <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }}>
-                    <FileX2 width={16} height={16} />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-file-x-2"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m8 12.5-5 5" /><path d="m3 12.5 5 5" /></svg>
+                    {/* <FileX2 width={16} height={16} /> */}
                     {error}
                 </div> :
                 <>

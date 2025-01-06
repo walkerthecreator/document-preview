@@ -17,7 +17,7 @@ export const loadPdf = async ({ file, url }: ILoadPDF): Promise<pdfjsLib.PDFDocu
     }
   } catch (error) {
     console.error("Error loading PDF:", error);
-    throw new Error("Failed to load PDF document");
+    throw error;
   }
 };
 

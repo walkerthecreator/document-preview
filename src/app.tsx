@@ -4,7 +4,7 @@ import { DocumentPreview } from "./components/DocumentPreview";
 
 const App = () => {
   return <div>
-    <DocumentPreview documentType='pdf' url='https://bnz-nitin.s3.eu-north-1.amazonaws.com/design.pdf' />
+    <DocumentPreview documentType='pdf' url='https://z-nitin.s3.eu-north-1.amazonaws.com/design.pdf' />
   </div>
 }
 

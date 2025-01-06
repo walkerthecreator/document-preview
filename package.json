@@ -1,6 +1,6 @@
 {
   "name": "document-preview-react",
-  "version": "0.7.1-development",
+  "version": "0.7.3-development",
   "type": "module",
   "description": "A template for creating npm packages using TypeScript and VSCode",
   "main": "./dist/document-preview.umd.js",
@@ -132,7 +132,6 @@
     ]
   },
   "dependencies": {
-    "lucide-react": "^0.469.0",
     "pdfjs-dist": "^4.10.38",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

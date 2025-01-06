@@ -117,17 +117,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT © [Your Name]
-```
-
-This documentation provides a comprehensive overview of your component, including installation instructions, usage examples, props documentation, and styling information. You may want to customize:
-
-1. The package name
-2. Installation instructions based on your actual package name
-3. The license section
-4. Add any additional features or requirements specific to your implementation
-5. Include any specific setup instructions for PDF.js worker
-6. Add any limitations or known issues
-7. Include information about the thumbnail generation features
-
-Would you like me to expand on any particular section or add more specific details?
+MIT © Nitin Jaswal
