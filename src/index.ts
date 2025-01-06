@@ -1,1 +1,3 @@
-export const myPackage = (taco = ''): string => `${taco} from my package`;
+import { DocumentPreview } from "./components/DocumentPreview"
+export { DocumentPreview }
+export type { IDocumentPreview } from './components/DocumentPreview'

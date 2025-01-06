@@ -7,7 +7,7 @@ import { DownloadButton } from "./download"
 
 type DocumentType = "pdf" | "image" | "word";
 
-interface IDocumentPreview {
+export interface IDocumentPreview {
     file?: File | null;
     url?: string;
     width?: number;
@@ -23,17 +23,22 @@ export const styles = {
         height,
         borderRadius: 12,
         outline: "2px solid dodgerblue",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBlock: 10,
+        position: "relative" as const
     }),
 };
 
-const DocumentPreview: React.FC<IDocumentPreview> = ({
+export const DocumentPreview: React.FC<IDocumentPreview> = ({
     url,
     file,
     width = 300,
     height = 210,
     documentType,
 }) => {
-    if (!url && !file) return
+    if (!url && !file) return null
     const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -89,42 +94,31 @@ const DocumentPreview: React.FC<IDocumentPreview> = ({
     if (!thumbnailUrl) return null;
 
     return (
-        <div
-            style={{
-                ...styles.container(width, height),
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginBlock: 10,
-                position: "relative"
-            }}
-        >{
-                error ?
-                    <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }}>
-                        <FileX2 width={16} height={16} />
-                        {error}
-                    </div> :
-                    <>
-                        {
-                            !!url &&
-                            <DownloadButton s3Url={url} fileName="pdf" type={documentType} />
-                        }
-                        <div style={{ width: "100%", height: "100%" }}>
-                            <img
-                                src={thumbnailUrl}
-                                alt={altText}
-                                style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    objectFit: "cover",
-                                    objectPosition: "top left",
-                                }}
-                            />
-                        </div>
-                    </>
-            }
+        <div style={styles.container(width, height)}>{
+            error ?
+                <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }}>
+                    <FileX2 width={16} height={16} />
+                    {error}
+                </div> :
+                <>
+                    {
+                        !!url &&
+                        <DownloadButton s3Url={url} fileName="pdf" type={documentType} />
+                    }
+                    <div style={{ width: "100%", height: "100%", overflow: "hidden", borderRadius: 10 }}>
+                        <img
+                            src={thumbnailUrl}
+                            alt={altText}
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "top left",
+                            }}
+                        />
+                    </div>
+                </>
+        }
         </div>
     );
 };
-
-export default DocumentPreview

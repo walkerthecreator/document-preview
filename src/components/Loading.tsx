@@ -2,7 +2,7 @@ import React from "react"
 import { FileText, Image } from "lucide-react"
 import { styles } from "../components/DocumentPreview";
 
-interface ILoading {
+export interface ILoading {
     documentType: "pdf" | "image" | "word",
     height: number,
     width: number

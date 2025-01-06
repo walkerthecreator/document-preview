@@ -15385,7 +15385,7 @@ const ph = Kn("FileX2", [
     const Q = document.createElement("a");
     Q.href = window.URL.createObjectURL(d), Q.download = l, document.body.appendChild(Q), Q.click(), document.body.removeChild(Q), window.URL.revokeObjectURL(Q.href);
   } catch (Z) {
-    throw console.error("Error downloading file:", Z), new Error(`Failed to download file: ${Z.message}`);
+    throw console.error("Error downloading file:", Z), Z instanceof Error ? new Error(`Failed to download file: ${Z.message}`) : new Error("something went wrong while downloading");
   }
 }, Dh = ({ s3Url: N, fileName: l, type: U }) => {
   const Z = async () => {
@@ -15426,7 +15426,12 @@ const Ih = {
     width: N,
     height: l,
     borderRadius: 12,
-    outline: "2px solid dodgerblue"
+    outline: "2px solid dodgerblue",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBlock: 10,
+    position: "relative"
   })
 }, wh = ({
   url: N,
@@ -15435,7 +15440,7 @@ const Ih = {
   height: Z = 210,
   documentType: d
 }) => {
-  if (!N && !l) return;
+  if (!N && !l) return null;
   const [Q, V] = it(""), [W, c] = it(!0), [t, R] = it(null), { generatePdfThumbnail: s, generateWordThumbnail: n } = oh, a = Mb(
     () => d === "pdf" ? "PDF thumbnail" : "Image preview",
     [d]
@@ -15468,40 +15473,27 @@ const Ih = {
         c(!1);
       }
     })();
-  }, [N, U, d]), Q ? /* @__PURE__ */ BZ.jsx(
-    "div",
-    {
-      style: {
-        ...Ih.container(U, Z),
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        marginBlock: 10,
-        position: "relative"
-      },
-      children: t ? /* @__PURE__ */ BZ.jsxs("div", { style: { width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }, children: [
-        /* @__PURE__ */ BZ.jsx(ph, { width: 16, height: 16 }),
-        t
-      ] }) : /* @__PURE__ */ BZ.jsxs(BZ.Fragment, { children: [
-        !!N && /* @__PURE__ */ BZ.jsx(Dh, { s3Url: N, fileName: "pdf", type: d }),
-        /* @__PURE__ */ BZ.jsx("div", { style: { width: "100%", height: "100%" }, children: /* @__PURE__ */ BZ.jsx(
-          "img",
-          {
-            src: Q,
-            alt: a,
-            style: {
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "top left"
-            }
-          }
-        ) })
-      ] })
-    }
-  ) : null;
+  }, [N, U, d]), Q ? /* @__PURE__ */ BZ.jsx("div", { style: Ih.container(U, Z), children: t ? /* @__PURE__ */ BZ.jsxs("div", { style: { width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }, children: [
+    /* @__PURE__ */ BZ.jsx(ph, { width: 16, height: 16 }),
+    t
+  ] }) : /* @__PURE__ */ BZ.jsxs(BZ.Fragment, { children: [
+    !!N && /* @__PURE__ */ BZ.jsx(Dh, { s3Url: N, fileName: "pdf", type: d }),
+    /* @__PURE__ */ BZ.jsx("div", { style: { width: "100%", height: "100%", overflow: "hidden", borderRadius: 10 }, children: /* @__PURE__ */ BZ.jsx(
+      "img",
+      {
+        src: Q,
+        alt: a,
+        style: {
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "top left"
+        }
+      }
+    ) })
+  ] }) }) : null;
 };
 export {
-  wh as default,
+  wh as DocumentPreview,
   Ih as styles
 };

@@ -1,7 +1,13 @@
 import { loadPdf, createThumbnail } from "../helper"
 
+export interface IGenerateThumbnail {
+  file?: File,
+  url?: string,
+  width: number,
+}
 
-export const generatePdfThumbnail = async ({ file, url, width }: { file?: File; url?: string; width: number }): Promise<string> => {
+
+export const generatePdfThumbnail = async ({ file, url, width }: IGenerateThumbnail): Promise<string> => {
 
   try {
     const pdf = await loadPdf({ file, url });

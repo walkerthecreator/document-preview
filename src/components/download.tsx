@@ -1,8 +1,9 @@
 import { CloudDownload } from 'lucide-react';
 import { FC } from 'react';
 import React from 'react';
+import { idText } from 'typescript';
 
-interface IDownload {
+export interface IDownload {
   s3Url: string,
   fileName: string,
   type: "word" | "pdf" | "image"
@@ -35,7 +36,10 @@ const downloadFileFromS3 = async ({ s3Url, fileName, type }: IDownload): Promise
     window.URL.revokeObjectURL(downloadLink.href);
   } catch (error) {
     console.error('Error downloading file:', error);
-    throw new Error(`Failed to download file: ${error.message}`);
+    if (error instanceof Error) {
+      throw new Error(`Failed to download file: ${error.message}`);
+    }
+    throw new Error("something went wrong while downloading")
   }
 };
 

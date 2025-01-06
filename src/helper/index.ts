@@ -1,6 +1,11 @@
 import * as pdfjsLib from "pdfjs-dist";
 
-export const loadPdf = async ({ file, url }: { file?: File; url?: string }): Promise<pdfjsLib.PDFDocumentProxy> => {
+export interface ILoadPDF {
+  file?: File;
+  url?: string;
+}
+
+export const loadPdf = async ({ file, url }: ILoadPDF): Promise<pdfjsLib.PDFDocumentProxy> => {
   try {
     if (url) {
       return await pdfjsLib.getDocument(url).promise;
