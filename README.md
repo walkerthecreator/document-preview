@@ -1,6 +1,3 @@
-I'll help you create a documentation page in markdown format for your DocumentPreview component. This documentation will be suitable for an NPM package page.
-
-```markdown
 # React Document Preview
 
 A React component for rendering previews of PDF documents, Word documents, and images with thumbnail generation support.
