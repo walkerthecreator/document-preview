@@ -48,7 +48,6 @@
   "bugs": {
     "url": "https://github.com/ryansonshine/typescript-npm-package-template/issues"
   },
-  "homepage": "https://github.com/ryansonshine/typescript-npm-package-template#readme",
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@ryansonshine/commitizen": "^4.2.8",
