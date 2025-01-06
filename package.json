@@ -1,10 +1,11 @@
 {
-  "name": "document-preview",
+  "name": "@nitin-jaswal/react-document-preview",
   "version": "0.0.0-development",
   "description": "A template for creating npm packages using TypeScript and VSCode",
-  "main": "./lib/index.js",
+  "main": "./dist/document-preview.umd.js",
+  "module": "./dist/document-preview.es.js",
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "scripts": {
     "dev": "vite",
