@@ -87,3 +87,31 @@ button:focus-visible {
     animation: fadeUp 0.2s ease-out;
     opacity: 1; /* Ensure it's visible at the end of the animation */
   }
+
+  .download-button {
+    cursor: pointer;
+    background: #333;
+    width: 50%;
+    min-width: 70px;
+    padding: 4px 12px;
+    color: white;
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 12px;
+    position: relative;
+  }
+  
+  .button-text {
+    display: inline-block;
+    margin-left: 8px;
+  }
+  
+  @media (max-width: 150px) {
+    .button-text {
+      display: none;
+    }
+  }
+  

@@ -1,6 +1,6 @@
 {
   "name": "document-preview-react",
-  "version": "0.7.5",
+  "version": "0.7.7",
   "type": "module",
   "description": "Aa package for displaying documents in a preview",
   "main": "./dist/document-preview.umd.js",

@@ -3,6 +3,7 @@ type DocumentType = "pdf" | "image" | "word";
 export interface IDocumentPreview {
     file?: File | null;
     url?: string;
+    fit?: "cover" | "contain" | "fill" | "none" | "scale-down";
     width?: number;
     height?: number;
     documentType: DocumentType;
@@ -12,7 +13,6 @@ export declare const styles: {
         width: number;
         height: number;
         borderRadius: number;
-        outline: string;
         display: string;
         justifyContent: string;
         alignItems: string;
@@ -20,5 +20,5 @@ export declare const styles: {
         position: "relative";
     };
 };
-export declare const DocumentPreview: ({ url, file, width, height, documentType, }: IDocumentPreview) => JSX.Element | null;
+export declare const DocumentPreview: ({ url, file, fit, width, height, documentType, }: IDocumentPreview) => JSX.Element | null;
 export {};

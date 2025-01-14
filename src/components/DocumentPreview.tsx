@@ -10,6 +10,7 @@ type DocumentType = "pdf" | "image" | "word";
 export interface IDocumentPreview {
     file?: File | null;
     url?: string;
+    fit?: "cover" | "contain" | "fill" | "none" | "scale-down";
     width?: number;
     height?: number;
     documentType: DocumentType;
@@ -18,11 +19,11 @@ export interface IDocumentPreview {
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('../worker/pdf.worker.min.mjs', import.meta.url).href;
 
 export const styles = {
-    container: (width: number, height: number ) => ({
+    container: (width: number, height: number) => ({
         width,
         height,
         borderRadius: 12,
-        outline: "2px solid dodgerblue",
+        // outline: "2px solid dodgerblue",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -34,6 +35,7 @@ export const styles = {
 export const DocumentPreview = ({
     url,
     file,
+    fit = "cover",
     width = 300,
     height = 210,
     documentType,
@@ -49,7 +51,7 @@ export const DocumentPreview = ({
         () => (documentType === "pdf" ? "PDF thumbnail" : "Image preview"),
         [documentType]
     );
-    
+
 
     useEffect(() => {
         const loadThumbnail = async () => {
@@ -94,46 +96,55 @@ export const DocumentPreview = ({
     if (isLoading) return <Loading width={width} height={height} documentType={documentType} />
 
     return (
-        <div onMouseOver={() => setShowButtons(true)} onMouseOut={() => setShowButtons(false)} style={styles.container(width, height)}>{
-            error ?
-                <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-x-2"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m8 12.5-5 5" /><path d="m3 12.5 5 5" /></svg>
-                    {error}
-                </div> :
-                <>
-                    {
-                        !!url && showButtons &&
-                        <div className="fade-" style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            flexDirection: "column",
-                            gap: 2,
-                            position: "absolute",
-                            width: "100%",
-                            height: "100%",
-                            zIndex: 10,
-                            borderRadius: 10,
-                            background: "rgba(0,0,0,0.1)",
-                        }}>
-                            <DownloadButton s3Url={url} fileName="pdf" type={documentType} />
-                            <View url={url} />
-                        </div>
-                    }
-                    <div style={{ width: "100%", height: "100%", overflow: "hidden", borderRadius: 10 }}>
-                        <img
-                            src={thumbnailUrl}
-                            alt={altText}
-                            style={{
+        <div
+            onMouseOver={() => setShowButtons(true)}
+            onMouseOut={() => setShowButtons(false)}
+            style={styles.container(width, height)}>{
+                error ?
+                    <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-x-2"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m8 12.5-5 5" /><path d="m3 12.5 5 5" /></svg>
+                        {error}
+                    </div> :
+                    <>
+                        {
+                            !!url && showButtons &&
+                            <div className="fade-" style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                flexDirection: "column",
+                                gap: 2,
+                                position: "absolute",
                                 width: "100%",
                                 height: "100%",
-                                objectFit: "cover",
-                                objectPosition: "top left",
-                            }}
-                        />
-                    </div>
-                </>
-        }
+                                zIndex: 10,
+                                borderRadius: 10,
+                                background: "rgba(0,0,0,0.1)",
+                            }}>
+                                <DownloadButton s3Url={url} fileName="pdf" type={documentType} />
+                                <View url={url} />
+                            </div>
+                        }
+                        <div style={{
+                            width: "100%",
+                            height: "100%",
+                            overflow: "hidden",
+                            borderRadius: 10,
+                            position: "relative",
+                        }}>
+                            <img
+                                src={thumbnailUrl}
+                                alt={altText}
+                                style={{
+                                    width: "100%",
+                                    height: "100%",
+                                    objectFit: fit,
+                                    objectPosition: documentType === "image" ? "center center" : "top left",
+                                }}
+                            />
+                        </div>
+                    </>
+            }
         </div>
     );
 };

@@ -7,7 +7,7 @@ export function View({ url }: { url: string }) {
         style={{
             background: "#333",
             width: "25%",
-            minWidth: "40px",
+            minWidth: "fit",
             padding: "4px 12px",
             color: "white",
             display: "flex",
