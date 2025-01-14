@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, JSX } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import { features } from "../feature"
 import { Loading } from "./Loading";
 import { DownloadButton } from "./download"
+import { View } from "./View"
 
 type DocumentType = "pdf" | "image" | "word";
 
@@ -17,7 +18,7 @@ export interface IDocumentPreview {
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('../worker/pdf.worker.min.mjs', import.meta.url).href;
 
 export const styles = {
-    container: (width: number, height: number) => ({
+    container: (width: number, height: number ) => ({
         width,
         height,
         borderRadius: 12,
@@ -26,29 +27,29 @@ export const styles = {
         justifyContent: "center",
         alignItems: "center",
         marginBlock: 10,
-        position: "relative" as const
+        position: "relative" as const,
     }),
 };
 
-export const DocumentPreview: React.FC<IDocumentPreview> = ({
+export const DocumentPreview = ({
     url,
     file,
     width = 300,
     height = 210,
     documentType,
-}) => {
+}: IDocumentPreview): JSX.Element | null => {
     if (!url && !file) return null
     const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [showButtons, setShowButtons] = useState(false);
     const { generatePdfThumbnail, generateWordThumbnail } = features;
 
     const altText = useMemo(
         () => (documentType === "pdf" ? "PDF thumbnail" : "Image preview"),
         [documentType]
     );
-
-    console.log('eror', error)
+    
 
     useEffect(() => {
         const loadThumbnail = async () => {
@@ -90,21 +91,34 @@ export const DocumentPreview: React.FC<IDocumentPreview> = ({
     }, [url, width, documentType]);
 
 
-    if (isLoading) <Loading width={width} height={height} documentType={documentType} />
-    // if (!thumbnailUrl) return null;
+    if (isLoading) return <Loading width={width} height={height} documentType={documentType} />
 
     return (
-        <div style={styles.container(width, height)}>{
+        <div onMouseOver={() => setShowButtons(true)} onMouseOut={() => setShowButtons(false)} style={styles.container(width, height)}>{
             error ?
                 <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-file-x-2"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m8 12.5-5 5" /><path d="m3 12.5 5 5" /></svg>
-                    {/* <FileX2 width={16} height={16} /> */}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-x-2"><path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m8 12.5-5 5" /><path d="m3 12.5 5 5" /></svg>
                     {error}
                 </div> :
                 <>
                     {
-                        !!url &&
-                        <DownloadButton s3Url={url} fileName="pdf" type={documentType} />
+                        !!url && showButtons &&
+                        <div className="fade-" style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexDirection: "column",
+                            gap: 2,
+                            position: "absolute",
+                            width: "100%",
+                            height: "100%",
+                            zIndex: 10,
+                            borderRadius: 10,
+                            background: "rgba(0,0,0,0.1)",
+                        }}>
+                            <DownloadButton s3Url={url} fileName="pdf" type={documentType} />
+                            <View url={url} />
+                        </div>
                     }
                     <div style={{ width: "100%", height: "100%", overflow: "hidden", borderRadius: 10 }}>
                         <img

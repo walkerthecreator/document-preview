@@ -1,8 +1,8 @@
 {
   "name": "document-preview-react",
-  "version": "0.7.3-development",
+  "version": "0.7.5",
   "type": "module",
-  "description": "A template for creating npm packages using TypeScript and VSCode",
+  "description": "Aa package for displaying documents in a preview",
   "main": "./dist/document-preview.umd.js",
   "module": "./dist/document-preview.es.js",
   "types": "./dist/index.d.ts",
@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "clean": "rm -rf ./lib/",
+    "clean": "rm -rf ./dist/",
     "cm": "cz",
     "lint": "eslint ./src/ --fix",
     "prepare": "husky install",

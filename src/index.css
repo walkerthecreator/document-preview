@@ -71,3 +71,19 @@ button:focus-visible {
         background-color: #f9f9f9;
     }
 }
+
+@keyframes fadeUp {
+    0% {
+      opacity: 0.5;
+      transform: translateY(5px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-up {
+    animation: fadeUp 0.2s ease-out;
+    opacity: 1; /* Ensure it's visible at the end of the animation */
+  }
