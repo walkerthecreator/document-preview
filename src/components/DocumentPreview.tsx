@@ -14,6 +14,7 @@ export interface IDocumentPreview {
     width?: number;
     height?: number;
     documentType: DocumentType;
+    className?: string;
 }
 
 // pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('../worker/pdf.worker.min.mjs', import.meta.url).href;
@@ -41,6 +42,7 @@ export const DocumentPreview = ({
     height = 210,
     documentType,
     style,
+    className
 }: IDocumentPreview): JSX.Element | null => {
     if (!url && !file) return null
     const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
@@ -98,6 +100,7 @@ export const DocumentPreview = ({
 
     return (
         <div
+            className={className}
             style={{ ...styles.container(width, height), ...style }}>
             {
                 error ?

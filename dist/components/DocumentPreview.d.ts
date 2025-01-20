@@ -8,6 +8,7 @@ export interface IDocumentPreview {
     width?: number;
     height?: number;
     documentType: DocumentType;
+    className?: string;
 }
 export declare const styles: {
     container: (width: number, height: number) => {
@@ -21,5 +22,5 @@ export declare const styles: {
         position: "relative";
     };
 };
-export declare const DocumentPreview: ({ url, file, fit, width, height, documentType, style, }: IDocumentPreview) => JSX.Element | null;
+export declare const DocumentPreview: ({ url, file, fit, width, height, documentType, style, className }: IDocumentPreview) => JSX.Element | null;
 export {};

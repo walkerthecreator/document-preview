@@ -15329,53 +15329,55 @@ const On = {
   width: Z = 300,
   height: d = 210,
   documentType: Q,
-  style: V
+  style: V,
+  className: W
 }) => {
   if (!N && !l) return null;
-  const [W, c] = it(""), [t, R] = it(!0), [s, n] = it(null), { generatePdfThumbnail: a, generateWordThumbnail: i } = Yh, M = hb(
+  const [c, t] = it(""), [R, s] = it(!0), [n, a] = it(null), { generatePdfThumbnail: i, generateWordThumbnail: M } = Yh, G = hb(
     () => Q === "pdf" ? "PDF thumbnail" : "Image preview",
     [Q]
   );
   return mb(() => {
     (async () => {
       try {
-        if (R(!0), n(null), Q === "pdf") {
-          const J = await a({
+        if (s(!0), a(null), Q === "pdf") {
+          const S = await i({
             ...l && { file: l },
             ...N && { url: N },
             width: Z
           });
-          c(J);
+          t(S);
         } else if (Q === "word") {
           if (!N) {
-            n("Missing URL");
+            a("Missing URL");
             return;
           }
-          const J = await i({
+          const S = await M({
             url: N,
             width: Z
           });
-          c(J);
+          t(S);
         } else
-          c(N);
+          t(N);
       } catch {
-        n("Failed to load preview");
+        a("Failed to load preview");
       } finally {
-        R(!1);
+        s(!1);
       }
     })();
-  }, [N, Z, Q]), t ? /* @__PURE__ */ ml.jsx(Bh, { width: Z, height: d, documentType: Q }) : /* @__PURE__ */ ml.jsx(
+  }, [N, Z, Q]), R ? /* @__PURE__ */ ml.jsx(Bh, { width: Z, height: d, documentType: Q }) : /* @__PURE__ */ ml.jsx(
     "div",
     {
+      className: W,
       style: { ...On.container(Z, d), ...V },
-      children: s ? /* @__PURE__ */ ml.jsxs("div", { style: { width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }, children: [
+      children: n ? /* @__PURE__ */ ml.jsxs("div", { style: { width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }, children: [
         /* @__PURE__ */ ml.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", className: "lucide lucide-file-x-2", children: [
           /* @__PURE__ */ ml.jsx("path", { d: "M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" }),
           /* @__PURE__ */ ml.jsx("path", { d: "M14 2v4a2 2 0 0 0 2 2h4" }),
           /* @__PURE__ */ ml.jsx("path", { d: "m8 12.5-5 5" }),
           /* @__PURE__ */ ml.jsx("path", { d: "m3 12.5 5 5" })
         ] }),
-        s
+        n
       ] }) : /* @__PURE__ */ ml.jsx(ml.Fragment, { children: /* @__PURE__ */ ml.jsx("div", { style: {
         width: "100%",
         height: "100%",
@@ -15385,8 +15387,8 @@ const On = {
       }, children: /* @__PURE__ */ ml.jsx(
         "img",
         {
-          src: W,
-          alt: M,
+          src: c,
+          alt: G,
           style: {
             width: "100%",
             height: "100%",
