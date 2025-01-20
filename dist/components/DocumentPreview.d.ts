@@ -1,6 +1,7 @@
-import { JSX } from 'react';
+import { default as React, JSX } from 'react';
 type DocumentType = "pdf" | "image" | "word";
 export interface IDocumentPreview {
+    style?: React.CSSProperties;
     file?: File | null;
     url?: string;
     fit?: "cover" | "contain" | "fill" | "none" | "scale-down";
@@ -20,5 +21,5 @@ export declare const styles: {
         position: "relative";
     };
 };
-export declare const DocumentPreview: ({ url, file, fit, width, height, documentType, }: IDocumentPreview) => JSX.Element | null;
+export declare const DocumentPreview: ({ url, file, fit, width, height, documentType, style, }: IDocumentPreview) => JSX.Element | null;
 export {};

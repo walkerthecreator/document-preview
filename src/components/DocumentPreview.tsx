@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo, JSX } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import { features } from "../feature"
 import { Loading } from "./Loading";
+import workerUrl from "../worker/pdf.worker.min.mjs?url";
 
 type DocumentType = "pdf" | "image" | "word";
 
@@ -15,7 +16,8 @@ export interface IDocumentPreview {
     documentType: DocumentType;
 }
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('../worker/pdf.worker.min.mjs', import.meta.url).href;
+// pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('../worker/pdf.worker.min.mjs', import.meta.url).href;
+pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
 
 export const styles = {
     container: (width: number, height: number) => ({

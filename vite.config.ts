@@ -32,7 +32,6 @@ export default defineConfig({
     lib: {
       entry : "./src/index.ts" , 
       formats : ['es' , 'umd'] , 
-      // entry: 'src/components/DocumentPreview.tsx',  // The entry file for the component
       name: 'document-preview',  // The global variable name
       fileName: (format) => `document-preview.${format}.js`,  // Output file name
     },
