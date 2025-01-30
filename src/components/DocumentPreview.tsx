@@ -4,7 +4,7 @@ import { features } from "../feature"
 import { Loading } from "./Loading";
 import workerUrl from "../worker/pdf.worker.min.mjs?url";
 
-type DocumentType = "pdf" | "image" | "word";
+type DocumentType = "pdf" | "image" ;
 
 export interface IDocumentPreview {
     style?: React.CSSProperties;
@@ -15,13 +15,14 @@ export interface IDocumentPreview {
     height?: number;
     documentType: DocumentType;
     className?: string;
+    imgClassName?: string  ;
 }
 
 // pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('../worker/pdf.worker.min.mjs', import.meta.url).href;
 pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
 
 export const styles = {
-    container: (width: number, height: number) => ({
+    container: (width: string | number , height: string| number) => ({  
         width,
         height,
         borderRadius: 12,
@@ -42,7 +43,8 @@ export const DocumentPreview = ({
     height = 210,
     documentType,
     style,
-    className
+    className, 
+    imgClassName
 }: IDocumentPreview): JSX.Element | null => {
     if (!url && !file) return null
     const [thumbnailUrl, setThumbnailUrl] = useState<string>("");
@@ -69,17 +71,6 @@ export const DocumentPreview = ({
                         width
                     });
                     setThumbnailUrl(documentUrl);
-                }
-                else if (documentType === "word") {
-                    if (!url) {
-                        setError('Missing URL')
-                        return
-                    }
-                    const imageData = await generateWordThumbnail({
-                        url,
-                        width
-                    })
-                    setThumbnailUrl(imageData)
                 }
                 else {
                     setThumbnailUrl(url!)
@@ -109,6 +100,7 @@ export const DocumentPreview = ({
                         </div> :
                         <img
                             src={thumbnailUrl}
+                            className={imgClassName}
                             alt={altText}
                             style={{
                                 width: "100%",
