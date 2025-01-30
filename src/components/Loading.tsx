@@ -3,13 +3,11 @@ import { styles } from "../components/DocumentPreview";
 
 export interface ILoading {
     documentType: "pdf" | "image" | "word",
-    height: number,
-    width: number
 }
 
-export function Loading({ documentType, height, width }: ILoading) {
+export function Loading({ documentType }: ILoading) {
     return (
-        <div style={styles.container(width, height)}>
+        <div style={{ width : "100%" , height : "100%" }}>
             <span
                 style={{
                     width: "100%",
