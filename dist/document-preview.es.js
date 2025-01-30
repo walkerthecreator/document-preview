@@ -642,7 +642,7 @@ var JN;
 function Jb() {
   return JN || (JN = 1, process.env.NODE_ENV === "production" ? AW.exports = ib() : AW.exports = Mb()), AW.exports;
 }
-var ml = Jb(), aV = {};
+var Sl = Jb(), aV = {};
 aV.d = (N, l) => {
   for (var U in l)
     aV.o(l, U) && !aV.o(N, U) && Object.defineProperty(N, U, { enumerable: !0, get: l[U] });
@@ -1532,7 +1532,7 @@ function xb(N) {
   }
   l.remove();
 }
-function Jl(N) {
+function Ml(N) {
   const {
     a: l,
     b: U,
@@ -1858,13 +1858,13 @@ j0 = new WeakMap(), XV = new WeakMap(), QU = new WeakMap(), O0 = new WeakSet(), 
   return F(this, QU).set(l, Z), Z && F(this, QU).set(Z.id, Z), Z;
 };
 let Lt = AR;
-var ul, yd, YV, Tl;
+var ul, yd, YV, Gl;
 class rb {
   constructor(l = 128) {
     h(this, ul, []);
     h(this, yd, !1);
     h(this, YV);
-    h(this, Tl, -1);
+    h(this, Gl, -1);
     b(this, YV, l);
   }
   add({
@@ -1884,58 +1884,58 @@ class rb {
       post: Z,
       type: Q
     };
-    if (F(this, Tl) === -1) {
-      F(this, ul).length > 0 && (F(this, ul).length = 0), b(this, Tl, 0), F(this, ul).push(c);
+    if (F(this, Gl) === -1) {
+      F(this, ul).length > 0 && (F(this, ul).length = 0), b(this, Gl, 0), F(this, ul).push(c);
       return;
     }
-    if (V && F(this, ul)[F(this, Tl)].type === Q) {
-      W && (c.undo = F(this, ul)[F(this, Tl)].undo), F(this, ul)[F(this, Tl)] = c;
+    if (V && F(this, ul)[F(this, Gl)].type === Q) {
+      W && (c.undo = F(this, ul)[F(this, Gl)].undo), F(this, ul)[F(this, Gl)] = c;
       return;
     }
-    const t = F(this, Tl) + 1;
-    t === F(this, YV) ? F(this, ul).splice(0, 1) : (b(this, Tl, t), t < F(this, ul).length && F(this, ul).splice(t)), F(this, ul).push(c);
+    const t = F(this, Gl) + 1;
+    t === F(this, YV) ? F(this, ul).splice(0, 1) : (b(this, Gl, t), t < F(this, ul).length && F(this, ul).splice(t)), F(this, ul).push(c);
   }
   undo() {
-    if (F(this, Tl) === -1)
+    if (F(this, Gl) === -1)
       return;
     b(this, yd, !0);
     const {
       undo: l,
       post: U
-    } = F(this, ul)[F(this, Tl)];
-    l(), U == null || U(), b(this, yd, !1), b(this, Tl, F(this, Tl) - 1);
+    } = F(this, ul)[F(this, Gl)];
+    l(), U == null || U(), b(this, yd, !1), b(this, Gl, F(this, Gl) - 1);
   }
   redo() {
-    if (F(this, Tl) < F(this, ul).length - 1) {
-      b(this, Tl, F(this, Tl) + 1), b(this, yd, !0);
+    if (F(this, Gl) < F(this, ul).length - 1) {
+      b(this, Gl, F(this, Gl) + 1), b(this, yd, !0);
       const {
         cmd: l,
         post: U
-      } = F(this, ul)[F(this, Tl)];
+      } = F(this, ul)[F(this, Gl)];
       l(), U == null || U(), b(this, yd, !1);
     }
   }
   hasSomethingToUndo() {
-    return F(this, Tl) !== -1;
+    return F(this, Gl) !== -1;
   }
   hasSomethingToRedo() {
-    return F(this, Tl) < F(this, ul).length - 1;
+    return F(this, Gl) < F(this, ul).length - 1;
   }
   cleanType(l) {
-    if (F(this, Tl) !== -1) {
-      for (let U = F(this, Tl); U >= 0; U--)
+    if (F(this, Gl) !== -1) {
+      for (let U = F(this, Gl); U >= 0; U--)
         if (F(this, ul)[U].type !== l) {
-          F(this, ul).splice(U + 1, F(this, Tl) - U), b(this, Tl, U);
+          F(this, ul).splice(U + 1, F(this, Gl) - U), b(this, Gl, U);
           return;
         }
-      F(this, ul).length = 0, b(this, Tl, -1);
+      F(this, ul).length = 0, b(this, Gl, -1);
     }
   }
   destroy() {
     b(this, ul, null);
   }
 }
-ul = new WeakMap(), yd = new WeakMap(), YV = new WeakMap(), Tl = new WeakMap();
+ul = new WeakMap(), yd = new WeakMap(), YV = new WeakMap(), Gl = new WeakMap();
 var jc, qN;
 class HW {
   constructor(l) {
@@ -3264,13 +3264,13 @@ DV = new WeakMap(), eF = new WeakMap(), IV = new WeakMap(), EV = new WeakMap(), 
   F(this, Cd).abort(), b(this, Cd, null), (U = F(this, xV)) == null || U.call(this), F(this, ld) && (l.preventDefault(), b(this, ld, null), b(this, eF, !1));
 };
 let kc = _R;
-var uF, sZ, il, q0, wd, jV, yF, Al, zF, Ud, xd, OV, LF, oU, rV, oF, Zd, DZ, $0, lQ, qU, kF, gV, gc, O, jt, KV, Ot, cc, Ns, ss, rt, tc, gt, ns, bs, as, Kt, hs, Ht, ms, is, Ms, vt, ZV;
+var uF, sZ, ml, q0, wd, jV, yF, Al, zF, Ud, xd, OV, LF, oU, rV, oF, Zd, DZ, $0, lQ, qU, kF, gV, gc, O, jt, KV, Ot, cc, Ns, ss, rt, tc, gt, ns, bs, as, Kt, hs, Ht, ms, is, Ms, vt, ZV;
 const A = class A {
   constructor(l) {
     h(this, O);
     h(this, uF, null);
     h(this, sZ, null);
-    h(this, il, null);
+    h(this, ml, null);
     h(this, q0, !1);
     h(this, wd, null);
     h(this, jV, "");
@@ -3589,14 +3589,14 @@ const A = class A {
   }
   altTextFinish() {
     var l;
-    (l = F(this, il)) == null || l.finish();
+    (l = F(this, ml)) == null || l.finish();
   }
   async addEditToolbar() {
-    return this._editToolbar || F(this, oF) ? this._editToolbar : (this._editToolbar = new yt(this), this.div.append(this._editToolbar.render()), F(this, il) && await this._editToolbar.addAltText(F(this, il)), this._editToolbar);
+    return this._editToolbar || F(this, oF) ? this._editToolbar : (this._editToolbar = new yt(this), this.div.append(this._editToolbar.render()), F(this, ml) && await this._editToolbar.addAltText(F(this, ml)), this._editToolbar);
   }
   removeEditToolbar() {
     var l;
-    this._editToolbar && (this._editToolbar.remove(), this._editToolbar = null, (l = F(this, il)) == null || l.destroy());
+    this._editToolbar && (this._editToolbar.remove(), this._editToolbar = null, (l = F(this, ml)) == null || l.destroy());
   }
   addContainer(l) {
     var Z;
@@ -3607,33 +3607,33 @@ const A = class A {
     return this.div.getBoundingClientRect();
   }
   async addAltTextButton() {
-    F(this, il) || (oc.initialize(A._l10n), b(this, il, new oc(this)), F(this, uF) && (F(this, il).data = F(this, uF), b(this, uF, null)), await this.addEditToolbar());
+    F(this, ml) || (oc.initialize(A._l10n), b(this, ml, new oc(this)), F(this, uF) && (F(this, ml).data = F(this, uF), b(this, uF, null)), await this.addEditToolbar());
   }
   get altTextData() {
     var l;
-    return (l = F(this, il)) == null ? void 0 : l.data;
+    return (l = F(this, ml)) == null ? void 0 : l.data;
   }
   set altTextData(l) {
-    F(this, il) && (F(this, il).data = l);
+    F(this, ml) && (F(this, ml).data = l);
   }
   get guessedAltText() {
     var l;
-    return (l = F(this, il)) == null ? void 0 : l.guessedText;
+    return (l = F(this, ml)) == null ? void 0 : l.guessedText;
   }
   async setGuessedAltText(l) {
     var U;
-    await ((U = F(this, il)) == null ? void 0 : U.setGuessedText(l));
+    await ((U = F(this, ml)) == null ? void 0 : U.setGuessedText(l));
   }
   serializeAltText(l) {
     var U;
-    return (U = F(this, il)) == null ? void 0 : U.serialize(l);
+    return (U = F(this, ml)) == null ? void 0 : U.serialize(l);
   }
   hasAltText() {
-    return !!F(this, il) && !F(this, il).isEmpty();
+    return !!F(this, ml) && !F(this, ml).isEmpty();
   }
   hasAltTextData() {
     var l;
-    return ((l = F(this, il)) == null ? void 0 : l.hasData()) ?? !1;
+    return ((l = F(this, ml)) == null ? void 0 : l.hasData()) ?? !1;
   }
   render() {
     var Q;
@@ -3860,13 +3860,13 @@ const A = class A {
       });
       return;
     }
-    (U = this._editToolbar) == null || U.show(), (Z = F(this, il)) == null || Z.toggleAltTextBadge(!1);
+    (U = this._editToolbar) == null || U.show(), (Z = F(this, ml)) == null || Z.toggleAltTextBadge(!1);
   }
   unselect() {
     var l, U, Z, d, Q;
     (l = F(this, Al)) == null || l.classList.add("hidden"), (U = this.div) == null || U.classList.remove("selectedEditor"), (Z = this.div) != null && Z.contains(document.activeElement) && this._uiManager.currentLayer.div.focus({
       preventScroll: !0
-    }), (d = this._editToolbar) == null || d.hide(), (Q = F(this, il)) == null || Q.toggleAltTextBadge(!0);
+    }), (d = this._editToolbar) == null || d.hide(), (Q = F(this, ml)) == null || Q.toggleAltTextBadge(!0);
   }
   updateParams(l, U) {
   }
@@ -3955,7 +3955,7 @@ const A = class A {
     (U == null ? void 0 : U.nodeName) === "DIV" && U.classList.contains("annotationContent") && U.remove();
   }
 };
-uF = new WeakMap(), sZ = new WeakMap(), il = new WeakMap(), q0 = new WeakMap(), wd = new WeakMap(), jV = new WeakMap(), yF = new WeakMap(), Al = new WeakMap(), zF = new WeakMap(), Ud = new WeakMap(), xd = new WeakMap(), OV = new WeakMap(), LF = new WeakMap(), oU = new WeakMap(), rV = new WeakMap(), oF = new WeakMap(), Zd = new WeakMap(), DZ = new WeakMap(), $0 = new WeakMap(), lQ = new WeakMap(), qU = new WeakMap(), kF = new WeakMap(), gV = new WeakMap(), gc = new WeakMap(), O = new WeakSet(), jt = function([l, U], Z, d) {
+uF = new WeakMap(), sZ = new WeakMap(), ml = new WeakMap(), q0 = new WeakMap(), wd = new WeakMap(), jV = new WeakMap(), yF = new WeakMap(), Al = new WeakMap(), zF = new WeakMap(), Ud = new WeakMap(), xd = new WeakMap(), OV = new WeakMap(), LF = new WeakMap(), oU = new WeakMap(), rV = new WeakMap(), oF = new WeakMap(), Zd = new WeakMap(), DZ = new WeakMap(), $0 = new WeakMap(), lQ = new WeakMap(), qU = new WeakMap(), kF = new WeakMap(), gV = new WeakMap(), gc = new WeakMap(), O = new WeakSet(), jt = function([l, U], Z, d) {
   [Z, d] = this.screenToPageTranslation(Z, d), this.x += Z / l, this.y += d / U, this._onTranslating(this.x, this.y), this.fixAndSetPosition();
 }, KV = new WeakSet(), Ot = function(l, U, Z) {
   switch (Z) {
@@ -4005,7 +4005,7 @@ uF = new WeakMap(), sZ = new WeakMap(), il = new WeakMap(), q0 = new WeakMap(), 
   } = MU.platform;
   if (U.button !== 0 || U.ctrlKey && Z)
     return;
-  (R = F(this, il)) == null || R.toggle(!1);
+  (R = F(this, ml)) == null || R.toggle(!1);
   const d = this._isDraggable;
   this._isDraggable = !1, b(this, zF, [U.screenX, U.screenY]);
   const Q = new AbortController(), V = this._uiManager.combinedSignal(Q);
@@ -4028,7 +4028,7 @@ uF = new WeakMap(), sZ = new WeakMap(), il = new WeakMap(), q0 = new WeakMap(), 
   this.div.style.cursor = this.parent.div.style.cursor = window.getComputedStyle(U.target).cursor;
   const t = () => {
     var s;
-    Q.abort(), this.parent.togglePointerEvents(!0), (s = F(this, il)) == null || s.toggle(!0), this._isDraggable = d, this.parent.div.style.cursor = W, this.div.style.cursor = c, m(this, O, tc).call(this);
+    Q.abort(), this.parent.togglePointerEvents(!0), (s = F(this, ml)) == null || s.toggle(!0), this._isDraggable = d, this.parent.div.style.cursor = W, this.div.style.cursor = c, m(this, O, tc).call(this);
   };
   window.addEventListener("pointerup", t, {
     signal: V
@@ -4115,7 +4115,7 @@ uF = new WeakMap(), sZ = new WeakMap(), il = new WeakMap(), q0 = new WeakMap(), 
     savedY: this.y,
     savedWidth: this.width,
     savedHeight: this.height
-  }), (l = F(this, il)) == null || l.toggle(!1), this.parent.togglePointerEvents(!1);
+  }), (l = F(this, ml)) == null || l.toggle(!1), this.parent.togglePointerEvents(!1);
 }, bs = function(l, U, Z) {
   let Q = 0.7 * (Z / U) + 1 - 0.7;
   if (Q === 1)
@@ -4130,7 +4130,7 @@ uF = new WeakMap(), sZ = new WeakMap(), il = new WeakMap(), q0 = new WeakMap(), 
   this.x = Y - B[0], this.y = X - B[1], this.width = G, this.height = J, this.setDims(c * G, t * J), this.fixAndSetPosition(), this._onResizing();
 }, as = function() {
   var l;
-  (l = F(this, il)) == null || l.toggle(!0), this.parent.togglePointerEvents(!0), m(this, O, tc).call(this);
+  (l = F(this, ml)) == null || l.toggle(!0), this.parent.togglePointerEvents(!0), m(this, O, tc).call(this);
 }, Kt = function(l) {
   const {
     isMac: U
@@ -5267,7 +5267,7 @@ class $b extends vR {
   getPattern(l, U, Z, d) {
     let Q;
     if (d === tU.STROKE || d === tU.FILL) {
-      const V = U.current.getClippedPathBoundingBox(d, Jl(l)) || [0, 0, 0, 0], W = Math.ceil(V[2] - V[0]) || 1, c = Math.ceil(V[3] - V[1]) || 1, t = U.cachedCanvases.getCanvas("pattern", W, c), R = t.context;
+      const V = U.current.getClippedPathBoundingBox(d, Ml(l)) || [0, 0, 0, 0], W = Math.ceil(V[2] - V[0]) || 1, c = Math.ceil(V[3] - V[1]) || 1, t = U.cachedCanvases.getCanvas("pattern", W, c), R = t.context;
       R.clearRect(0, 0, R.canvas.width, R.canvas.height), R.beginPath(), R.rect(0, 0, R.canvas.width, R.canvas.height), R.translate(-V[0], -V[1]), Z = w.transform(Z, [1, 0, 0, 1, V[0], V[1]]), R.transform(...U.baseTransform), this.matrix && R.transform(...this.matrix), _t(R, this._bbox), R.fillStyle = this._createGradient(R), R.fill(), Q = l.createPattern(t.canvas, "no-repeat");
       const s = new DOMMatrix(Z);
       Q.setTransform(s);
@@ -5353,7 +5353,7 @@ class Ua extends vR {
     _t(l, this._bbox);
     let Q;
     if (d === tU.SHADING)
-      Q = w.singularValueDecompose2dScale(Jl(l));
+      Q = w.singularValueDecompose2dScale(Ml(l));
     else if (Q = w.singularValueDecompose2dScale(U.baseTransform), this.matrix) {
       const W = w.singularValueDecompose2dScale(this.matrix);
       Q = [Q[0] * W[0], Q[1] * W[1]];
@@ -5404,7 +5404,7 @@ const BN = {
     const o = Math.ceil(c * S), C = Math.ceil(t * Y), v = Math.ceil(i * S), r = Math.ceil(M * Y);
     o >= v ? X = c : p = !0, C >= r ? B = t : e = !0;
     const nl = this.getSizeAndScale(X, this.ctx.canvas.width, S), Vl = this.getSizeAndScale(B, this.ctx.canvas.height, Y), _ = l.cachedCanvases.getCanvas("pattern", nl.size, Vl.size), el = _.context, k = W.createCanvasGraphics(el);
-    if (k.groupLevel = l.groupLevel, this.setFillAndStrokeStyleToContext(k, d, V), el.translate(-nl.scale * R, -Vl.scale * s), k.transform(nl.scale, 0, 0, Vl.scale, 0, 0), el.save(), this.clipBbox(k, R, s, n, a), k.baseTransform = Jl(k.ctx), k.executeOperatorList(Z), k.endDrawing(), el.restore(), p || e) {
+    if (k.groupLevel = l.groupLevel, this.setFillAndStrokeStyleToContext(k, d, V), el.translate(-nl.scale * R, -Vl.scale * s), k.transform(nl.scale, 0, 0, Vl.scale, 0, 0), el.save(), this.clipBbox(k, R, s, n, a), k.baseTransform = Ml(k.ctx), k.executeOperatorList(Z), k.endDrawing(), el.restore(), p || e) {
       const x = _.canvas;
       p && (X = c), e && (B = t);
       const UU = this.getSizeAndScale(X, this.ctx.canvas.width, S), yU = this.getSizeAndScale(B, this.ctx.canvas.height, Y), vU = UU.size, NU = yU.size, Il = l.cachedCanvases.getCanvas("pattern-workaround", vU, NU), Yl = Il.context, Bd = p ? Math.floor(i / c) : 0, RF = e ? Math.floor(M / t) : 0;
@@ -5437,7 +5437,7 @@ const BN = {
   }
   clipBbox(l, U, Z, d, Q) {
     const V = d - U, W = Q - Z;
-    l.ctx.rect(U, Z, V, W), l.current.updateRectMinMax(Jl(l.ctx), [U, Z, d, Q]), l.clip(), l.endPath();
+    l.ctx.rect(U, Z, V, W), l.current.updateRectMinMax(Ml(l.ctx), [U, Z, d, Q]), l.clip(), l.endPath();
   }
   setFillAndStrokeStyleToContext(l, U, Z) {
     const d = l.ctx, Q = l.current;
@@ -5551,7 +5551,7 @@ class Wa {
   }
 }
 function qW(N, l, U, Z, d, Q, V, W, c, t) {
-  const [R, s, n, a, i, M] = Jl(N);
+  const [R, s, n, a, i, M] = Ml(N);
   if (s === 0 && n === 0) {
     const S = V * R + i, Y = Math.round(S), X = W * a + M, B = Math.round(X), p = (V + c) * R + i, e = Math.abs(Math.round(p) - Y) || 1, o = (W + t) * a + M, C = Math.abs(Math.round(o) - B) || 1;
     return N.setTransform(Math.sign(R), 0, 0, Math.sign(a), Y, B), N.drawImage(l, U, Z, d, Q, 0, 0, e, C), N.setTransform(R, s, n, a, i, M), [e, C];
@@ -5773,9 +5773,9 @@ const qR = class qR {
     const Q = this.ctx.canvas.width, V = this.ctx.canvas.height, W = this.ctx.fillStyle;
     if (this.ctx.fillStyle = d || "#ffffff", this.ctx.fillRect(0, 0, Q, V), this.ctx.fillStyle = W, Z) {
       const c = this.cachedCanvases.getCanvas("transparent", Q, V);
-      this.compositeCtx = this.ctx, this.transparentCanvas = c.canvas, this.ctx = c.context, this.ctx.save(), this.ctx.transform(...Jl(this.compositeCtx));
+      this.compositeCtx = this.ctx, this.transparentCanvas = c.canvas, this.ctx = c.context, this.ctx.save(), this.ctx.transform(...Ml(this.compositeCtx));
     }
-    this.ctx.save(), $W(this.ctx), l && (this.ctx.transform(...l), this.outputScaleX = l[0], this.outputScaleY = l[0]), this.ctx.transform(...U.transform), this.viewportScale = U.scale, this.baseTransform = Jl(this.ctx);
+    this.ctx.save(), $W(this.ctx), l && (this.ctx.transform(...l), this.outputScaleX = l[0], this.outputScaleY = l[0]), this.ctx.transform(...U.transform), this.viewportScale = U.scale, this.baseTransform = Ml(this.ctx);
   }
   executeOperatorList(l, U, Z, d) {
     const Q = l.argsArray, V = l.fnArray;
@@ -5833,7 +5833,7 @@ const qR = class qR {
     const U = this.ctx, {
       width: Z,
       height: d
-    } = l, Q = this.current.fillColor, V = this.current.patternFill, W = Jl(U);
+    } = l, Q = this.current.fillColor, V = this.current.patternFill, W = Ml(U);
     let c, t, R, s;
     if ((l.bitmap || l.data) && l.count > 1) {
       const o = l.bitmap || l.data.buffer;
@@ -5853,7 +5853,7 @@ const qR = class qR {
     let n = w.transform(W, [1 / Z, 0, 0, -1 / d, 0, 0]);
     n = w.transform(n, [1, 0, 0, 1, 0, -d]);
     const [a, i, M, G] = w.getAxialAlignedBoundingBox([0, 0, Z, d], n), J = Math.round(M - a) || 1, S = Math.round(G - i) || 1, Y = this.cachedCanvases.getCanvas("fillCanvas", J, S), X = Y.context, B = a, p = i;
-    X.translate(-B, -p), X.transform(...n), R || (R = this._scaleImage(s.canvas, XZ(X)), R = R.img, c && V && c.set(t, R)), X.imageSmoothingEnabled = kN(Jl(X), l.interpolate), qW(X, R, 0, 0, R.width, R.height, 0, 0, Z, d), X.globalCompositeOperation = "source-in";
+    X.translate(-B, -p), X.transform(...n), R || (R = this._scaleImage(s.canvas, XZ(X)), R = R.img, c && V && c.set(t, R)), X.imageSmoothingEnabled = kN(Ml(X), l.interpolate), qW(X, R, 0, 0, R.width, R.height, 0, 0, Z, d), X.globalCompositeOperation = "source-in";
     const e = w.transform(XZ(X), [1, 0, 0, 1, -B, -p]);
     return X.fillStyle = V ? Q.getPattern(U, this, e, tU.FILL) : Q, X.fillRect(0, 0, Z, d), c && !V && (this.cachedCanvases.delete("fillCanvas"), c.set(t, Y.canvas)), {
       canvas: Y.canvas,
@@ -5938,7 +5938,7 @@ const qR = class qR {
     const l = this.ctx.canvas.width, U = this.ctx.canvas.height, Z = "smaskGroupAt" + this.groupLevel, d = this.cachedCanvases.getCanvas(Z, l, U);
     this.suspendedCtx = this.ctx, this.ctx = d.context;
     const Q = this.ctx;
-    Q.setTransform(...Jl(this.suspendedCtx)), AQ(this.suspendedCtx, Q), Va(Q, this.suspendedCtx), this.setGState([["BM", "source-over"], ["ca", 1], ["CA", 1]]);
+    Q.setTransform(...Ml(this.suspendedCtx)), AQ(this.suspendedCtx, Q), Va(Q, this.suspendedCtx), this.setGState([["BM", "source-over"], ["ca", 1], ["CA", 1]]);
   }
   endSMaskMode() {
     if (!this.inSMaskMode)
@@ -5987,7 +5987,7 @@ const qR = class qR {
   constructPath(l, U, Z) {
     const d = this.ctx, Q = this.current;
     let V = Q.x, W = Q.y, c, t;
-    const R = Jl(d), s = R[0] === 0 && R[3] === 0 || R[1] === 0 && R[2] === 0, n = s ? Z.slice(0) : null;
+    const R = Ml(d), s = R[0] === 0 && R[3] === 0 || R[1] === 0 && R[2] === 0, n = s ? Z.slice(0) : null;
     for (let a = 0, i = 0, M = l.length; a < M; a++)
       switch (l[a] | 0) {
         case cZ.rectangle:
@@ -6141,7 +6141,7 @@ const qR = class qR {
     } else
       (s === ZU.FILL || s === ZU.FILL_STROKE) && V.fillText(l, U, Z), (s === ZU.STROKE || s === ZU.FILL_STROKE) && V.strokeText(l, U, Z);
     n && (this.pendingTextPaths || (this.pendingTextPaths = [])).push({
-      transform: Jl(V),
+      transform: Ml(V),
       x: U,
       y: Z,
       fontSize: R,
@@ -6175,12 +6175,12 @@ const qR = class qR {
     if (U.patternFill) {
       Q.save();
       const e = U.fillColor.getPattern(Q, this, XZ(Q), tU.FILL);
-      J = Jl(Q), Q.restore(), Q.fillStyle = e;
+      J = Ml(Q), Q.restore(), Q.fillStyle = e;
     }
     if (U.patternStroke) {
       Q.save();
       const e = U.strokeColor.getPattern(Q, this, XZ(Q), tU.STROKE);
-      S = Jl(Q), Q.restore(), Q.strokeStyle = e;
+      S = Ml(Q), Q.restore(), Q.strokeStyle = e;
     }
     let Y = U.lineWidth;
     const X = U.textMatrixScale;
@@ -6259,7 +6259,7 @@ const qR = class qR {
   getColorN_Pattern(l) {
     let U;
     if (l[0] === "TilingPattern") {
-      const Z = l[1], d = this.baseTransform || Jl(this.ctx), Q = {
+      const Z = l[1], d = this.baseTransform || Ml(this.ctx), Q = {
         createCanvasGraphics: (V) => new qR(V, this.commonObjs, this.objs, this.canvasFactory, this.filterFactory, {
           optionalContentConfig: this.optionalContentConfig,
           markedContentStack: this.markedContentStack
@@ -6316,9 +6316,9 @@ const qR = class qR {
     al("Should not call beginImageData");
   }
   paintFormXObjectBegin(l, U) {
-    if (this.contentVisible && (this.save(), this.baseTransformStack.push(this.baseTransform), l && this.transform(...l), this.baseTransform = Jl(this.ctx), U)) {
+    if (this.contentVisible && (this.save(), this.baseTransformStack.push(this.baseTransform), l && this.transform(...l), this.baseTransform = Ml(this.ctx), U)) {
       const Z = U[2] - U[0], d = U[3] - U[1];
-      this.ctx.rect(U[0], U[1], Z, d), this.current.updateRectMinMax(Jl(this.ctx), U), this.clip(), this.endPath();
+      this.ctx.rect(U[0], U[1], Z, d), this.current.updateRectMinMax(Ml(this.ctx), U), this.clip(), this.endPath();
     }
   }
   paintFormXObjectEnd() {
@@ -6330,10 +6330,10 @@ const qR = class qR {
     this.save(), this.inSMaskMode && (this.endSMaskMode(), this.current.activeSMask = null);
     const U = this.ctx;
     l.isolated || Vt("TODO: Support non-isolated groups."), l.knockout && f("Knockout groups not supported.");
-    const Z = Jl(U);
+    const Z = Ml(U);
     if (l.matrix && U.transform(...l.matrix), !l.bbox)
       throw new Error("Bounding box is required.");
-    let d = w.getAxialAlignedBoundingBox(l.bbox, Jl(U));
+    let d = w.getAxialAlignedBoundingBox(l.bbox, Ml(U));
     const Q = [0, 0, U.canvas.width, U.canvas.height];
     d = w.intersect(d, Q) || [0, 0, 0, 0];
     const V = Math.floor(d[0]), W = Math.floor(d[1]), c = Math.max(Math.ceil(d[2]) - V, 1), t = Math.max(Math.ceil(d[3]) - W, 1);
@@ -6361,7 +6361,7 @@ const qR = class qR {
       this.tempSMask = this.smaskStack.pop(), this.restore();
     else {
       this.ctx.restore();
-      const d = Jl(this.ctx);
+      const d = Ml(this.ctx);
       this.restore(), this.ctx.save(), this.ctx.setTransform(...d);
       const Q = w.getAxialAlignedBoundingBox([0, 0, U.canvas.width, U.canvas.height], d);
       this.ctx.drawImage(U.canvas, 0, 0), this.ctx.restore(), this.compose(Q);
@@ -6372,7 +6372,7 @@ const qR = class qR {
       const V = U[2] - U[0], W = U[3] - U[1];
       if (Q && this.annotationCanvasMap) {
         Z = Z.slice(), Z[4] -= U[0], Z[5] -= U[1], U = U.slice(), U[0] = U[1] = 0, U[2] = V, U[3] = W;
-        const [c, t] = w.singularValueDecompose2dScale(Jl(this.ctx)), {
+        const [c, t] = w.singularValueDecompose2dScale(Ml(this.ctx)), {
           viewportScale: R
         } = this, s = Math.ceil(V * this.outputScaleX * R), n = Math.ceil(W * this.outputScaleY * R);
         this.annotationCanvas = this.canvasFactory.create(s, n);
@@ -6408,7 +6408,7 @@ const qR = class qR {
     l = this.getObject(l.data, l);
     const W = this.ctx;
     W.save();
-    const c = Jl(W);
+    const c = Ml(W);
     W.transform(U, Z, d, Q, 0, 0);
     const t = this._createMaskCanvas(l);
     W.setTransform(1, 0, 0, 1, t.offsetX - c[4], t.offsetY - c[5]);
@@ -6498,7 +6498,7 @@ const qR = class qR {
       LN(c, l), Q = this.applyTransferMapsToCanvas(c);
     }
     const V = this._scaleImage(Q, XZ(d));
-    d.imageSmoothingEnabled = kN(Jl(d), l.interpolate), qW(d, V.img, 0, 0, V.paintWidth, V.paintHeight, 0, -Z, U, Z), this.compose(), this.restore();
+    d.imageSmoothingEnabled = kN(Ml(d), l.interpolate), qW(d, V.img, 0, 0, V.paintWidth, V.paintHeight, 0, -Z, U, Z), this.compose(), this.restore();
   }
   paintInlineImageXObjectGroup(l, U) {
     if (!this.contentVisible)
@@ -6549,7 +6549,7 @@ const qR = class qR {
   }
   getSinglePixelWidth() {
     if (!this._cachedGetSinglePixelWidth) {
-      const l = Jl(this.ctx);
+      const l = Ml(this.ctx);
       if (l[1] === 0 && l[2] === 0)
         this._cachedGetSinglePixelWidth = 1 / Math.min(Math.abs(l[0]), Math.abs(l[3]));
       else {
@@ -8724,7 +8724,7 @@ class Ka {
 }
 Wd = new WeakMap(), fc = new WeakMap();
 var Ac, HF, vF, sQ, bc, nQ, ac;
-const Ml = class Ml {
+const il = class il {
   constructor({
     name: l = null,
     port: U = null,
@@ -8733,9 +8733,9 @@ const Ml = class Ml {
     h(this, sQ);
     var d;
     if (this.name = l, this.destroyed = !1, this.verbosity = Z, this._readyCapability = Promise.withResolvers(), this._port = null, this._webWorker = null, this._messageHandler = null, U) {
-      if ((d = F(Ml, vF)) != null && d.has(U))
+      if ((d = F(il, vF)) != null && d.has(U))
         throw new Error("Cannot use more than one PDFWorker per port.");
-      (F(Ml, vF) || b(Ml, vF, /* @__PURE__ */ new WeakMap())).set(U, this), this._initializeFromPort(U);
+      (F(il, vF) || b(il, vF, /* @__PURE__ */ new WeakMap())).set(U, this), this._initializeFromPort(U);
       return;
     }
     this._initialize();
@@ -8754,15 +8754,15 @@ const Ml = class Ml {
     }), m(this, sQ, bc).call(this);
   }
   _initialize() {
-    if (F(Ml, HF) || F(Ml, nQ, ac)) {
+    if (F(il, HF) || F(il, nQ, ac)) {
       this._setupFakeWorker();
       return;
     }
     let {
       workerSrc: l
-    } = Ml;
+    } = il;
     try {
-      Ml._isSameOrigin(window.location.href, l) || (l = Ml._createCDNWrapper(new URL(l, window.location).href));
+      il._isSameOrigin(window.location.href, l) || (l = il._createCDNWrapper(new URL(l, window.location).href));
       const U = new Worker(l, {
         type: "module"
       }), Z = new dV("main", "worker", U), d = () => {
@@ -8801,14 +8801,14 @@ const Ml = class Ml {
     this._setupFakeWorker();
   }
   _setupFakeWorker() {
-    F(Ml, HF) || (f("Setting up fake worker."), b(Ml, HF, !0)), Ml._setupFakeWorkerGlobal.then((l) => {
+    F(il, HF) || (f("Setting up fake worker."), b(il, HF, !0)), il._setupFakeWorkerGlobal.then((l) => {
       if (this.destroyed) {
         this._readyCapability.reject(new Error("Worker was destroyed"));
         return;
       }
       const U = new Ka();
       this._port = U;
-      const Z = `fake${nU(Ml, Ac)._++}`, d = new dV(Z + "_worker", Z, U);
+      const Z = `fake${nU(il, Ac)._++}`, d = new dV(Z + "_worker", Z, U);
       l.setup(d, U), this._messageHandler = new dV(Z, Z + "_worker", U), m(this, sQ, bc).call(this);
     }).catch((l) => {
       this._readyCapability.reject(new Error(`Setting up fake worker failed: "${l.message}".`));
@@ -8816,7 +8816,7 @@ const Ml = class Ml {
   }
   destroy() {
     var l, U, Z;
-    this.destroyed = !0, (l = this._webWorker) == null || l.terminate(), this._webWorker = null, (U = F(Ml, vF)) == null || U.delete(this._port), this._port = null, (Z = this._messageHandler) == null || Z.destroy(), this._messageHandler = null;
+    this.destroyed = !0, (l = this._webWorker) == null || l.terminate(), this._webWorker = null, (U = F(il, vF)) == null || U.delete(this._port), this._port = null, (Z = this._messageHandler) == null || Z.destroy(), this._messageHandler = null;
   }
   static fromPort(l) {
     var Z;
@@ -8828,7 +8828,7 @@ const Ml = class Ml {
         throw new Error("PDFWorker.fromPort - the worker is being destroyed.\nPlease remember to await `PDFDocumentLoadingTask.destroy()`-calls.");
       return U;
     }
-    return new Ml(l);
+    return new il(l);
   }
   static get workerSrc() {
     if (Gd.workerSrc)
@@ -8853,7 +8853,7 @@ Ac = new WeakMap(), HF = new WeakMap(), vF = new WeakMap(), sQ = new WeakSet(), 
   } catch {
     return null;
   }
-}, h(Ml, nQ), h(Ml, Ac, 0), h(Ml, HF, !1), h(Ml, vF), RU && (b(Ml, HF, !0), Gd.workerSrc || (Gd.workerSrc = "./pdf.worker.mjs")), Ml._isSameOrigin = (l, U) => {
+}, h(il, nQ), h(il, Ac, 0), h(il, HF, !1), h(il, vF), RU && (b(il, HF, !0), Gd.workerSrc || (Gd.workerSrc = "./pdf.worker.mjs")), il._isSameOrigin = (l, U) => {
   let Z;
   try {
     if (Z = new URL(l), !Z.origin || Z.origin === "null")
@@ -8863,13 +8863,13 @@ Ac = new WeakMap(), HF = new WeakMap(), vF = new WeakMap(), sQ = new WeakSet(), 
   }
   const d = new URL(U, Z);
   return Z.origin === d.origin;
-}, Ml._createCDNWrapper = (l) => {
+}, il._createCDNWrapper = (l) => {
   const U = `await import("${l}");`;
   return URL.createObjectURL(new Blob([U], {
     type: "text/javascript"
   }));
 };
-let x0 = Ml;
+let x0 = il;
 var cd, IZ, bQ, aQ, td, PF, cV;
 class Ha {
   constructor(l, U, Z, d, Q) {
@@ -14181,7 +14181,7 @@ Zt = new WeakSet(), En = function(U) {
   return this._hasBeenMoved || this._hasBeenResized || U.color.some((W, c) => W !== Z[c]) || U.thickness !== d || U.opacity !== Q || U.pageIndex !== V;
 }, j(C0, "_type", "ink"), j(C0, "_editorType", P.INK), j(C0, "_defaultDrawingOptions", null);
 let yR = C0;
-var Sl, $l, lF, md, UF, OQ, jZ, OZ, OU, rQ, Fl, nV, bV, ec, LR, pc, oR, uc, Cn;
+var Tl, $l, lF, md, UF, OQ, jZ, OZ, OU, rQ, Fl, nV, bV, ec, LR, pc, oR, uc, Cn;
 const hV = class hV extends Xl {
   constructor(U) {
     super({
@@ -14189,7 +14189,7 @@ const hV = class hV extends Xl {
       name: "stampEditor"
     });
     h(this, Fl);
-    h(this, Sl, null);
+    h(this, Tl, null);
     h(this, $l, null);
     h(this, lF, null);
     h(this, md, null);
@@ -14274,7 +14274,7 @@ const hV = class hV extends Xl {
   }
   remove() {
     var U;
-    F(this, $l) && (b(this, Sl, null), this._uiManager.imageManager.deleteId(F(this, $l)), (U = F(this, jZ)) == null || U.remove(), b(this, jZ, null), F(this, OZ) && (clearTimeout(F(this, OZ)), b(this, OZ, null))), super.remove();
+    F(this, $l) && (b(this, Tl, null), this._uiManager.imageManager.deleteId(F(this, $l)), (U = F(this, jZ)) == null || U.remove(), b(this, jZ, null), F(this, OZ) && (clearTimeout(F(this, OZ)), b(this, OZ, null))), super.remove();
   }
   rebuild() {
     if (!this.parent) {
@@ -14287,7 +14287,7 @@ const hV = class hV extends Xl {
     this._isDraggable = !0, U && this.div.focus();
   }
   isEmpty() {
-    return !(F(this, lF) || F(this, Sl) || F(this, md) || F(this, UF) || F(this, $l));
+    return !(F(this, lF) || F(this, Tl) || F(this, md) || F(this, UF) || F(this, $l));
   }
   get isResizable() {
     return !0;
@@ -14296,7 +14296,7 @@ const hV = class hV extends Xl {
     if (this.div)
       return this.div;
     let U, Z;
-    if (this.width && (U = this.x, Z = this.y), super.render(), this.div.hidden = !0, this.div.setAttribute("role", "figure"), this.addAltTextButton(), F(this, Sl) ? m(this, Fl, LR).call(this) : m(this, Fl, ec).call(this), this.width && !this.annotationElementId) {
+    if (this.width && (U = this.x, Z = this.y), super.render(), this.div.hidden = !0, this.div.setAttribute("role", "figure"), this.addAltTextButton(), F(this, Tl) ? m(this, Fl, LR).call(this) : m(this, Fl, ec).call(this), this.width && !this.annotationElementId) {
       const [d, Q] = this.parentDimensions;
       this.setAt(U * d, Z * Q, this.width * d, this.height * Q);
     }
@@ -14318,8 +14318,8 @@ const hV = class hV extends Xl {
     const {
       width: Q,
       height: V
-    } = F(this, Sl), W = new ut();
-    let c = F(this, Sl), t = Q, R = V, s = null;
+    } = F(this, Tl), W = new ut();
+    let c = F(this, Tl), t = Q, R = V, s = null;
     if (Z) {
       if (Q > Z || V > Z) {
         const o = Math.min(Z / Q, Z / V);
@@ -14340,7 +14340,7 @@ const hV = class hV extends Xl {
       let i, M;
       if (W.symmetric && c.width < U && c.height < U)
         i = c.width, M = c.height;
-      else if (c = F(this, Sl), Q > U || V > U) {
+      else if (c = F(this, Tl), Q > U || V > U) {
         const S = Math.min(U / Q, U / V);
         i = Math.floor(Q * S), M = Math.floor(V * S), F(this, OU) || (c = m(this, Fl, pc).call(this, i, M));
       }
@@ -14410,7 +14410,7 @@ const hV = class hV extends Xl {
       isSvg: s,
       accessibilityData: n
     } = U;
-    R && d.imageManager.isValidId(R) ? (b(V, $l, R), c && b(V, Sl, c)) : b(V, md, t), b(V, OU, s);
+    R && d.imageManager.isValidId(R) ? (b(V, $l, R), c && b(V, Tl, c)) : b(V, md, t), b(V, OU, s);
     const [a, i] = V.pageDimensions;
     return V.width = (W[2] - W[0]) / a, V.height = (W[3] - W[1]) / i, V.annotationElementId = U.id || null, n && (V.altTextData = n), V._initialData = Q, b(V, rQ, !!Q), V;
   }
@@ -14464,19 +14464,19 @@ const hV = class hV extends Xl {
     }), null;
   }
 };
-Sl = new WeakMap(), $l = new WeakMap(), lF = new WeakMap(), md = new WeakMap(), UF = new WeakMap(), OQ = new WeakMap(), jZ = new WeakMap(), OZ = new WeakMap(), OU = new WeakMap(), rQ = new WeakMap(), Fl = new WeakSet(), nV = function(U, Z = !1) {
+Tl = new WeakMap(), $l = new WeakMap(), lF = new WeakMap(), md = new WeakMap(), UF = new WeakMap(), OQ = new WeakMap(), jZ = new WeakMap(), OZ = new WeakMap(), OU = new WeakMap(), rQ = new WeakMap(), Fl = new WeakSet(), nV = function(U, Z = !1) {
   if (!U) {
     this.remove();
     return;
   }
-  b(this, Sl, U.bitmap), Z || (b(this, $l, U.id), b(this, OU, U.isSvg)), U.file && b(this, OQ, U.file.name), m(this, Fl, LR).call(this);
+  b(this, Tl, U.bitmap), Z || (b(this, $l, U.id), b(this, OU, U.isSvg)), U.file && b(this, OQ, U.file.name), m(this, Fl, LR).call(this);
 }, bV = function() {
   if (b(this, lF, null), this._uiManager.enableWaiting(!1), !!F(this, jZ)) {
-    if (this._uiManager.useNewAltTextWhenAddingImage && this._uiManager.useNewAltTextFlow && F(this, Sl)) {
+    if (this._uiManager.useNewAltTextWhenAddingImage && this._uiManager.useNewAltTextFlow && F(this, Tl)) {
       this._editToolbar.hide(), this._uiManager.editAltText(this, !0);
       return;
     }
-    if (!this._uiManager.useNewAltTextWhenAddingImage && this._uiManager.useNewAltTextFlow && F(this, Sl)) {
+    if (!this._uiManager.useNewAltTextWhenAddingImage && this._uiManager.useNewAltTextFlow && F(this, Tl)) {
       this._reportTelemetry({
         action: "pdfjs.image.image_added",
         data: {
@@ -14540,7 +14540,7 @@ Sl = new WeakMap(), $l = new WeakMap(), lF = new WeakMap(), md = new WeakMap(), 
   let {
     width: Z,
     height: d
-  } = F(this, Sl);
+  } = F(this, Tl);
   const [Q, V] = this.pageDimensions, W = 0.75;
   if (this.width)
     Z = this.width * Q, d = this.height * V;
@@ -14558,8 +14558,8 @@ Sl = new WeakMap(), $l = new WeakMap(), lF = new WeakMap(), md = new WeakMap(), 
   const {
     width: d,
     height: Q
-  } = F(this, Sl);
-  let V = d, W = Q, c = F(this, Sl);
+  } = F(this, Tl);
+  let V = d, W = Q, c = F(this, Tl);
   for (; V > 2 * U || W > 2 * Z; ) {
     const t = V, R = W;
     V > 2 * U && (V = V >= 16384 ? Math.floor(V / 2) - 1 : Math.ceil(V / 2)), W > 2 * Z && (W = W >= 16384 ? Math.floor(W / 2) - 1 : Math.ceil(W / 2));
@@ -14575,7 +14575,7 @@ Sl = new WeakMap(), $l = new WeakMap(), lF = new WeakMap(), md = new WeakMap(), 
   if (!t || t.width === W && t.height === c)
     return;
   t.width = W, t.height = c;
-  const R = F(this, OU) ? F(this, Sl) : m(this, Fl, pc).call(this, W, c), s = t.getContext("2d");
+  const R = F(this, OU) ? F(this, Tl) : m(this, Fl, pc).call(this, W, c), s = t.getContext("2d");
   s.filter = this._uiManager.hcmFilter, s.drawImage(R, 0, 0, R.width, R.height, 0, 0, W, c);
 }, uc = function(U) {
   if (U) {
@@ -14588,13 +14588,13 @@ Sl = new WeakMap(), $l = new WeakMap(), lF = new WeakMap(), md = new WeakMap(), 
     return {
       width: Z.width,
       height: Z.height
-    } = F(this, Sl), Z.getContext("2d").drawImage(F(this, Sl), 0, 0), Z.toDataURL();
+    } = F(this, Tl), Z.getContext("2d").drawImage(F(this, Tl), 0, 0), Z.toDataURL();
   }
   if (F(this, OU)) {
     const [Z, d] = this.pageDimensions, Q = Math.round(this.width * Z * WF.PDF_TO_CSS_UNITS), V = Math.round(this.height * d * WF.PDF_TO_CSS_UNITS), W = new OffscreenCanvas(Q, V);
-    return W.getContext("2d").drawImage(F(this, Sl), 0, 0, F(this, Sl).width, F(this, Sl).height, 0, 0, Q, V), W.transferToImageBitmap();
+    return W.getContext("2d").drawImage(F(this, Tl), 0, 0, F(this, Tl).width, F(this, Tl).height, 0, 0, Q, V), W.transferToImageBitmap();
   }
-  return structuredClone(F(this, Sl));
+  return structuredClone(F(this, Tl));
 }, Cn = function(U) {
   var W;
   const {
@@ -14609,7 +14609,7 @@ Sl = new WeakMap(), $l = new WeakMap(), lF = new WeakMap(), md = new WeakMap(), 
   };
 }, j(hV, "_type", "stamp"), j(hV, "_editorType", P.STAMP);
 let zR = hV;
-var i0, gQ, rZ, ZF, id, ZZ, dF, KQ, M0, MZ, Md, cU, Jd, E, FF, Gl, wn, BZ, DR, IR, yc;
+var i0, gQ, rZ, ZF, id, ZZ, dF, KQ, M0, MZ, Md, cU, Jd, E, FF, Jl, wn, BZ, DR, IR, yc;
 const WZ = class WZ {
   constructor({
     uiManager: l,
@@ -14623,7 +14623,7 @@ const WZ = class WZ {
     viewport: t,
     l10n: R
   }) {
-    h(this, Gl);
+    h(this, Jl);
     h(this, i0);
     h(this, gQ, !1);
     h(this, rZ, null);
@@ -14656,7 +14656,7 @@ const WZ = class WZ {
     F(this, E).updateToolbar(l);
   }
   updateMode(l = F(this, E).getMode()) {
-    switch (m(this, Gl, yc).call(this), l) {
+    switch (m(this, Jl, yc).call(this), l) {
       case P.NONE:
         this.disableTextSelection(), this.togglePointerEvents(!1), this.toggleAnnotationLayerPointerEvents(!0), this.disableClick();
         return;
@@ -14747,7 +14747,7 @@ const WZ = class WZ {
         c = l.get(W), c && (F(this, E).addChangedExistingAnnotation(c), c.renderAnnotationElement(V) && c.show(!1)), V.show();
       }
     }
-    m(this, Gl, yc).call(this), this.isEmpty && (this.div.hidden = !0);
+    m(this, Jl, yc).call(this), this.isEmpty && (this.div.hidden = !0);
     const {
       classList: Z
     } = this.div;
@@ -14767,7 +14767,7 @@ const WZ = class WZ {
     if (this.div.tabIndex = -1, (l = F(this, cU)) != null && l.div && !F(this, Jd)) {
       b(this, Jd, new AbortController());
       const U = F(this, E).combinedSignal(F(this, Jd));
-      F(this, cU).div.addEventListener("pointerdown", m(this, Gl, wn).bind(this), {
+      F(this, cU).div.addEventListener("pointerdown", m(this, Jl, wn).bind(this), {
         signal: U
       }), F(this, cU).div.classList.add("highlighting");
     }
@@ -14859,14 +14859,14 @@ const WZ = class WZ {
   }
   canCreateNewEmptyEditor() {
     var l;
-    return (l = F(this, Gl, BZ)) == null ? void 0 : l.canCreateNewEmptyEditor();
+    return (l = F(this, Jl, BZ)) == null ? void 0 : l.canCreateNewEmptyEditor();
   }
   pasteEditor(l, U) {
     F(this, E).updateToolbar(l), F(this, E).updateMode(l);
     const {
       offsetX: Z,
       offsetY: d
-    } = m(this, Gl, IR).call(this), Q = this.getNextId(), V = m(this, Gl, DR).call(this, {
+    } = m(this, Jl, IR).call(this), Q = this.getNextId(), V = m(this, Jl, DR).call(this, {
       parent: this,
       id: Q,
       x: Z,
@@ -14882,7 +14882,7 @@ const WZ = class WZ {
     return await ((U = F(WZ, FF).get(l.annotationType ?? l.annotationEditorType)) == null ? void 0 : U.deserialize(l, this, F(this, E))) || null;
   }
   createAndAddNewEditor(l, U, Z = {}) {
-    const d = this.getNextId(), Q = m(this, Gl, DR).call(this, {
+    const d = this.getNextId(), Q = m(this, Jl, DR).call(this, {
       parent: this,
       id: d,
       x: l.offsetX,
@@ -14894,7 +14894,7 @@ const WZ = class WZ {
     return Q && this.add(Q), Q;
   }
   addNewEditor() {
-    this.createAndAddNewEditor(m(this, Gl, IR).call(this), !0);
+    this.createAndAddNewEditor(m(this, Jl, IR).call(this), !0);
   }
   setSelected(l) {
     F(this, E).setSelected(l);
@@ -14910,7 +14910,7 @@ const WZ = class WZ {
     const {
       isMac: U
     } = MU.platform;
-    if (!(l.button !== 0 || l.ctrlKey && U) && l.target === this.div && F(this, dF) && (b(this, dF, !1), !((Z = F(this, Gl, BZ)) != null && Z.isDrawer && F(this, Gl, BZ).supportMultipleDrawings))) {
+    if (!(l.button !== 0 || l.ctrlKey && U) && l.target === this.div && F(this, dF) && (b(this, dF, !1), !((Z = F(this, Jl, BZ)) != null && Z.isDrawer && F(this, Jl, BZ).supportMultipleDrawings))) {
       if (!F(this, gQ)) {
         b(this, gQ, !0);
         return;
@@ -14933,7 +14933,7 @@ const WZ = class WZ {
     } = MU.platform;
     if (l.button !== 0 || l.ctrlKey && U || l.target !== this.div)
       return;
-    if (b(this, dF, !0), (d = F(this, Gl, BZ)) != null && d.isDrawer) {
+    if (b(this, dF, !0), (d = F(this, Jl, BZ)) != null && d.isDrawer) {
       this.startDrawingSession(l);
       return;
     }
@@ -14942,7 +14942,7 @@ const WZ = class WZ {
   }
   startDrawingSession(l) {
     if (this.div.focus(), F(this, MZ)) {
-      F(this, Gl, BZ).startDrawing(this, F(this, E), !1, l);
+      F(this, Jl, BZ).startDrawing(this, F(this, E), !1, l);
       return;
     }
     F(this, E).setCurrentDrawingSession(this), b(this, MZ, new AbortController());
@@ -14953,7 +14953,7 @@ const WZ = class WZ {
       Z && !this.div.contains(Z) && (b(this, Md, null), this.commitOrRemove());
     }, {
       signal: U
-    }), F(this, Gl, BZ).startDrawing(this, F(this, E), !1, l);
+    }), F(this, Jl, BZ).startDrawing(this, F(this, E), !1, l);
   }
   pause(l) {
     if (l) {
@@ -14969,7 +14969,7 @@ const WZ = class WZ {
     }, 0);
   }
   endDrawingSession(l = !1) {
-    return F(this, MZ) ? (F(this, E).setCurrentDrawingSession(null), F(this, MZ).abort(), b(this, MZ, null), b(this, Md, null), F(this, Gl, BZ).endDrawing(l)) : null;
+    return F(this, MZ) ? (F(this, E).setCurrentDrawingSession(null), F(this, MZ).abort(), b(this, MZ, null), b(this, Md, null), F(this, Jl, BZ).endDrawing(l)) : null;
   }
   findNewParent(l, U, Z) {
     const d = F(this, E).findParent(U, Z);
@@ -14979,7 +14979,7 @@ const WZ = class WZ {
     return F(this, MZ) ? (this.endDrawingSession(), !0) : !1;
   }
   onScaleChanging() {
-    F(this, MZ) && F(this, Gl, BZ).onScaleChangingWhenDrawing(this);
+    F(this, MZ) && F(this, Jl, BZ).onScaleChangingWhenDrawing(this);
   }
   destroy() {
     var l, U;
@@ -14999,7 +14999,7 @@ const WZ = class WZ {
   update({
     viewport: l
   }) {
-    F(this, E).commitOrRemove(), m(this, Gl, yc).call(this);
+    F(this, E).commitOrRemove(), m(this, Jl, yc).call(this);
     const U = this.viewport.rotation, Z = l.rotation;
     if (this.viewport = l, G0(this.div, {
       rotation: Z
@@ -15018,7 +15018,7 @@ const WZ = class WZ {
     return F(this, E).viewParameters.realScale;
   }
 };
-i0 = new WeakMap(), gQ = new WeakMap(), rZ = new WeakMap(), ZF = new WeakMap(), id = new WeakMap(), ZZ = new WeakMap(), dF = new WeakMap(), KQ = new WeakMap(), M0 = new WeakMap(), MZ = new WeakMap(), Md = new WeakMap(), cU = new WeakMap(), Jd = new WeakMap(), E = new WeakMap(), FF = new WeakMap(), Gl = new WeakSet(), wn = function(l) {
+i0 = new WeakMap(), gQ = new WeakMap(), rZ = new WeakMap(), ZF = new WeakMap(), id = new WeakMap(), ZZ = new WeakMap(), dF = new WeakMap(), KQ = new WeakMap(), M0 = new WeakMap(), MZ = new WeakMap(), Md = new WeakMap(), cU = new WeakMap(), Jd = new WeakMap(), E = new WeakMap(), FF = new WeakMap(), Jl = new WeakSet(), wn = function(l) {
   F(this, E).unselectAll();
   const {
     target: U
@@ -15043,7 +15043,7 @@ i0 = new WeakMap(), gQ = new WeakMap(), rZ = new WeakMap(), ZF = new WeakMap(), 
 }, BZ = function() {
   return F(WZ, FF).get(F(this, E).getMode());
 }, DR = function(l) {
-  const U = F(this, Gl, BZ);
+  const U = F(this, Jl, BZ);
   return U ? new U.prototype.constructor(l) : null;
 }, IR = function() {
   const {
@@ -15280,7 +15280,7 @@ const Gh = async ({ file: N, url: l }) => {
   generateWordThumbnail: Xh
 };
 function Bh({ documentType: N, height: l, width: U }) {
-  return /* @__PURE__ */ ml.jsx("div", { style: On.container(U, l), children: /* @__PURE__ */ ml.jsxs(
+  return /* @__PURE__ */ Sl.jsx("div", { style: On.container(U, l), children: /* @__PURE__ */ Sl.jsxs(
     "span",
     {
       style: {
@@ -15292,18 +15292,18 @@ function Bh({ documentType: N, height: l, width: U }) {
         alignItems: "center"
       },
       children: [
-        /* @__PURE__ */ ml.jsx("span", { className: "mb-4", children: N === "pdf" ? /* @__PURE__ */ ml.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "6", height: "6", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", className: "lucide lucide-file-text", children: [
-          /* @__PURE__ */ ml.jsx("path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" }),
-          /* @__PURE__ */ ml.jsx("path", { d: "M14 2v4a2 2 0 0 0 2 2h4" }),
-          /* @__PURE__ */ ml.jsx("path", { d: "M10 9H8" }),
-          /* @__PURE__ */ ml.jsx("path", { d: "M16 13H8" }),
-          /* @__PURE__ */ ml.jsx("path", { d: "M16 17H8" })
-        ] }) : /* @__PURE__ */ ml.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "6", height: "6", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", className: "lucide lucide-image", children: [
-          /* @__PURE__ */ ml.jsx("rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", ry: "2" }),
-          /* @__PURE__ */ ml.jsx("circle", { cx: "9", cy: "9", r: "2" }),
-          /* @__PURE__ */ ml.jsx("path", { d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" })
+        /* @__PURE__ */ Sl.jsx("span", { className: "mb-4", children: N === "pdf" ? /* @__PURE__ */ Sl.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "6", height: "6", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", className: "lucide lucide-file-text", children: [
+          /* @__PURE__ */ Sl.jsx("path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" }),
+          /* @__PURE__ */ Sl.jsx("path", { d: "M14 2v4a2 2 0 0 0 2 2h4" }),
+          /* @__PURE__ */ Sl.jsx("path", { d: "M10 9H8" }),
+          /* @__PURE__ */ Sl.jsx("path", { d: "M16 13H8" }),
+          /* @__PURE__ */ Sl.jsx("path", { d: "M16 17H8" })
+        ] }) : /* @__PURE__ */ Sl.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "6", height: "6", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", className: "lucide lucide-image", children: [
+          /* @__PURE__ */ Sl.jsx("rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", ry: "2" }),
+          /* @__PURE__ */ Sl.jsx("circle", { cx: "9", cy: "9", r: "2" }),
+          /* @__PURE__ */ Sl.jsx("path", { d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" })
         ] }) }),
-        /* @__PURE__ */ ml.jsx("span", { children: "Generating preview..." })
+        /* @__PURE__ */ Sl.jsx("span", { children: "Generating preview..." })
       ]
     }
   ) });
@@ -15365,26 +15365,20 @@ const On = {
         s(!1);
       }
     })();
-  }, [N, Z, Q]), R ? /* @__PURE__ */ ml.jsx(Bh, { width: Z, height: d, documentType: Q }) : /* @__PURE__ */ ml.jsx(
+  }, [N, Z, Q]), R ? /* @__PURE__ */ Sl.jsx(Bh, { width: Z, height: d, documentType: Q }) : /* @__PURE__ */ Sl.jsx(
     "div",
     {
       className: W,
       style: { ...On.container(Z, d), ...V },
-      children: n ? /* @__PURE__ */ ml.jsxs("div", { style: { width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }, children: [
-        /* @__PURE__ */ ml.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", className: "lucide lucide-file-x-2", children: [
-          /* @__PURE__ */ ml.jsx("path", { d: "M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" }),
-          /* @__PURE__ */ ml.jsx("path", { d: "M14 2v4a2 2 0 0 0 2 2h4" }),
-          /* @__PURE__ */ ml.jsx("path", { d: "m8 12.5-5 5" }),
-          /* @__PURE__ */ ml.jsx("path", { d: "m3 12.5 5 5" })
+      children: n ? /* @__PURE__ */ Sl.jsxs("div", { style: { width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 3 }, children: [
+        /* @__PURE__ */ Sl.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", className: "lucide lucide-file-x-2", children: [
+          /* @__PURE__ */ Sl.jsx("path", { d: "M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" }),
+          /* @__PURE__ */ Sl.jsx("path", { d: "M14 2v4a2 2 0 0 0 2 2h4" }),
+          /* @__PURE__ */ Sl.jsx("path", { d: "m8 12.5-5 5" }),
+          /* @__PURE__ */ Sl.jsx("path", { d: "m3 12.5 5 5" })
         ] }),
         n
-      ] }) : /* @__PURE__ */ ml.jsx(ml.Fragment, { children: /* @__PURE__ */ ml.jsx("div", { style: {
-        width: "100%",
-        height: "100%",
-        overflow: "hidden",
-        borderRadius: 10,
-        position: "relative"
-      }, children: /* @__PURE__ */ ml.jsx(
+      ] }) : /* @__PURE__ */ Sl.jsx(
         "img",
         {
           src: c,
@@ -15396,7 +15390,7 @@ const On = {
             objectPosition: Q === "image" ? "center center" : "top left"
           }
         }
-      ) }) })
+      )
     }
   );
 };
