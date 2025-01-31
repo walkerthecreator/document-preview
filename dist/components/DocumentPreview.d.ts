@@ -1,5 +1,5 @@
 import { default as React, JSX } from 'react';
-type DocumentType = "pdf" | "image" | "word";
+type DocumentType = "pdf" | "image";
 export interface IDocumentPreview {
     style?: React.CSSProperties;
     file?: File | null;
@@ -9,11 +9,12 @@ export interface IDocumentPreview {
     height?: number;
     documentType: DocumentType;
     className?: string;
+    imgClassName?: string;
 }
 export declare const styles: {
-    container: (width: number, height: number) => {
-        width: number;
-        height: number;
+    container: (width: string | number, height: string | number) => {
+        width: string | number;
+        height: string | number;
         borderRadius: number;
         display: string;
         justifyContent: string;
@@ -22,5 +23,5 @@ export declare const styles: {
         position: "relative";
     };
 };
-export declare const DocumentPreview: ({ url, file, fit, width, height, documentType, style, className }: IDocumentPreview) => JSX.Element | null;
+export declare const DocumentPreview: ({ url, file, fit, width, height, documentType, style, className, imgClassName }: IDocumentPreview) => JSX.Element | null;
 export {};
